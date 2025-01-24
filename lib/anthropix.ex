@@ -190,6 +190,27 @@ defmodule Anthropix do
     }
   }
 
+  @type standard_document_source() :: %{
+    type: String.t(),
+    media_type: String.t(),
+    data: String.t(),
+  }
+
+  @type custom_document_source() :: %{
+    type: String.t(),
+    content: list(content_text())
+  }
+
+  @type content_document() :: %{
+    type: String.t(),
+    source: standard_document_source() | custom_document_source(),
+    title: String.t(),
+    context: String.t(),
+    citations: %{
+      enabled: boolean()
+    }
+  }
+
   @type content_tool_use() :: %{
     type: String.t(),
     id: String.t(),
